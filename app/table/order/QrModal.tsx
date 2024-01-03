@@ -10,8 +10,8 @@ import {
 import React, { useState } from "react";
 import { TableQuery } from "../page";
 import QRCode from "react-qr-code";
+import { clientWebserverUrl } from "@/app/constant";
 
-const clientUserUrl = "http://localhost:3001";
 
 const QrModal = ({ tableInfo }: { tableInfo: TableQuery }) => {
   const [open, setOpen] = useState(false);
@@ -20,7 +20,7 @@ const QrModal = ({ tableInfo }: { tableInfo: TableQuery }) => {
   const onOpenChange = () => setOpen(!open);
 
   const initQr = () => {
-    setSrc(`${clientUserUrl}/auth?uuid=${tableInfo.uuid}`);
+    setSrc(`${clientWebserverUrl}/auth?uuid=${tableInfo.uuid}`);
     onOpenChange();
   };
 
