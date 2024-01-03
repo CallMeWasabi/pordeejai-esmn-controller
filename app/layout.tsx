@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Kanit } from 'next/font/google'
 import './globals.css'
+import UiWrapper from './UiWrapper'
+import Sider from './Sider'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ['latin'] })
+const kanit = Kanit({ weight: "300", subsets: ["thai"] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={kanit.className}>
+        <Toaster />
+        <div className='flex w-full'>
+          <Sider />
+          <UiWrapper>
+            {children}
+          </UiWrapper>
+        </div>
+      </body>
     </html>
   )
 }
