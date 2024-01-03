@@ -10,17 +10,17 @@ import {
 import React, { useState } from "react";
 import { TableQuery } from "../page";
 import QRCode from "react-qr-code";
-import { clientWebserverUrl } from "@/app/constant";
 
 
 const QrModal = ({ tableInfo }: { tableInfo: TableQuery }) => {
+  const shopUrl = "https://pordeejai-esmn.vercel.app"
   const [open, setOpen] = useState(false);
   const [src, setSrc] = useState("");
 
   const onOpenChange = () => setOpen(!open);
 
   const initQr = () => {
-    setSrc(`${clientWebserverUrl}/auth?uuid=${tableInfo.uuid}`);
+    setSrc(`${shopUrl}/auth?uuid=${tableInfo.uuid}`);
     onOpenChange();
   };
 
