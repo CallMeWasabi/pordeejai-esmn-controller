@@ -9,9 +9,21 @@ import {
 } from "@nextui-org/react";
 import React, { useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { deleteOption } from "./page";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import axios from "axios";
+
+const deleteOption = async (id: number) => {
+  const response = await axios.delete(
+    `${process.env.WEBSERVER_URL}/api/options/${id}`
+  );
+  if (response.status === 200) {
+    return 200;
+  } else {
+    return response.status;
+  }
+};
+
 
 const DeleteButton = ({ id }: { id: number }) => {
   const router = useRouter();

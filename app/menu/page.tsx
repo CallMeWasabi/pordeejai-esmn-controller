@@ -44,14 +44,6 @@ export interface MenuQuery {
   menu_type_id: number;
 }
 
-const convertThaiDate = (date: Date) => {
-  const result = new Date(date);
-  return result.toLocaleString("th-TH", {
-    dateStyle: "long",
-    timeStyle: "medium",
-  });
-};
-
 const Page = () => {
   const [forceLoading, callForceLoading] = useState(false);
   const [menuTypes, setMenuTypes] = useState<MenuTypeQuery[]>([]);

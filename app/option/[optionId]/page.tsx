@@ -15,17 +15,6 @@ import ClientRenderDate from "./ClientRenderDate";
 import DeleteButton from "./DeleteButton";
 import { CiEdit } from "react-icons/ci";
 
-export const deleteOption = async (id: number) => {
-  const response = await axios.delete(
-    `${process.env.WEBSERVER_URL}/api/options/${id}`
-  );
-  if (response.status === 200) {
-    return 200;
-  } else {
-    return response.status;
-  }
-};
-
 const Page = async ({ params }: { params: { optionId: number } }) => {
   const response = await axios.get(
     `${process.env.WEBSERVER_URL}/api/options/${params.optionId}`
