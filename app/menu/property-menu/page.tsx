@@ -1,7 +1,7 @@
 "use server";
 import { Button, Card, CardHeader, Checkbox, Chip } from "@nextui-org/react";
 import React from "react";
-import { MenuQuery, OptionQuery, convertThaiDate } from "../page";
+import { MenuQuery, OptionQuery } from "../page";
 import axios from "axios";
 import { statusSelected } from "../[menuTypeId]/CardMenu";
 import Link from "next/link";
