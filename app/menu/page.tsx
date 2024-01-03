@@ -44,7 +44,7 @@ export interface MenuQuery {
   menu_type_id: number;
 }
 
-export const convertThaiDate = (date: Date) => {
+const convertThaiDate = (date: Date) => {
   const result = new Date(date);
   return result.toLocaleString("th-TH", {
     dateStyle: "long",
@@ -60,8 +60,8 @@ const Page = () => {
     const loadMenuType = async () => {
       const resposne = await axios.get("http://localhost:8080/api/menu-types", {
         headers: {
-          "Preload": "true"
-        }
+          Preload: "true",
+        },
       });
       setMenuTypes(resposne.data);
     };

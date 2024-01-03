@@ -1,6 +1,13 @@
 "use client";
 import React from "react";
-import { MenuQuery, convertThaiDate } from "../page";
+
+const convertThaiDate = (date: Date) => {
+  const result = new Date(date);
+  return result.toLocaleString("th-TH", {
+    dateStyle: "long",
+    timeStyle: "medium",
+  });
+};
 
 const ClientRenderDate = ({
   created_at,
